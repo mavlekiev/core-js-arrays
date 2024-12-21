@@ -369,8 +369,8 @@ function generateOdds(len) {
  *   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
-function getElementByIndices(arr, indices) {
-  return arr.filter((el, i) => i === indices[el[i]]);
+function getElementByIndices(/* arr, indices */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -386,8 +386,9 @@ function getElementByIndices(arr, indices) {
  *  getFalsyValuesCount([ null, undefined, NaN, false, 0, '' ]) => 6
  */
 function getFalsyValuesCount(arr) {
+  const arrFalsy = [null, undefined, NaN, false, 0, ''];
   return arr.reduce((sum, item) => {
-    if (Number.isInteger(item) === false) return sum + 1;
+    if (arrFalsy.includes(item)) return sum + 1;
     return sum;
   }, 0);
 }
